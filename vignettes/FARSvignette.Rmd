@@ -1,0 +1,65 @@
+---
+title: "FARS vignette"
+author: "Alfonso Delgado-Bonal"
+date: "19 de marzo de 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# About this package
+
+This package has been created for reading, summarise and plot data from the US National Highway Traffic Safety Administration's [Fatality Analysis Reporting System.](https://www.nhtsa.gov/research-data/fatality-analysis-reporting-system-fars)
+
+This system is a nationwide census providing the American public yearly data regarding fatal injuries suffered in motor vehicle traffic crashes. 
+
+
+## Data
+
+You can download the data used in this package from [here.](https://www.nhtsa.gov/research-data/fatality-analysis-reporting-system-fars)
+
+You will also find the data from 2013, 2014 and 2015 in the /data folder. (note: due to this organization, the `make_filename` function has been adapted from the original)
+
+
+## Reading data: `make_filename`, `fars_read` and `fars_read_years` functions
+
+The raw data from FARS is a annual set of data in CSV format, containing several columns which are not necessary for this package. Using the functions from this package, a tidy dataset containing only the required information is obtained. See individual help for each function for more information. 
+
+The only required information from the user is the year or years for the analysis. Some examples of this functions are:
+
+```{r message=FALSE, warning=FALSE}
+source("../R/fars_functions.R")
+library(maps)
+library(graphics)
+library(dplyr)
+setwd("../inst/extdata")
+make_filename(2014)
+fars_read(make_filename(2013))
+fars_read_years(c(2013, 2014))
+```
+
+
+
+
+## Summarizing data: the `fars_summarize_years` function
+
+The information can be summarized for the given years in a simple way using the function `fars_summarize_years`:
+
+```{r}
+setwd("../inst/extdata")
+fars_summarize_years(c(2013,2014,2015))
+```
+
+
+
+## Plotting data: the `fars_map_state` function
+
+Finally, you are able to plot the results to take a look on the distribution. Here is an example for the state number 1 and the year 2014. The user only have to provide the state number as first argument and the year as second. Read the help page of the function if more information is required. 
+
+
+```{r message=FALSE, warning=FALSE}
+setwd("../inst/extdata")
+fars_map_state(1,2014)
+```

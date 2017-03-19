@@ -1,0 +1,12 @@
+Package: FARSinR2
+Title: FARSinR version 2. The version 1 did not work
+Version: 0.0.0.9000
+Authors@R: person("Alfonso", "Delgado-Bonal", email = "alfonso.delgado.bonal@gmail.com", role = c("aut", "cre"))
+Description: Package created for the 3rd course in Coursera specialization.
+Depends: R (>= 3.2.1)
+License: AGPL-3
+Encoding: UTF-8
+LazyData: true
+Imports: dplyr, tidyr, maps, readr, magrittr
+Suggests: testthat
+RoxygenNote: 6.0.1
