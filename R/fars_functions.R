@@ -1,4 +1,5 @@
-#' This function, named "fars_read", reads a file and save the data in a variable called "data".
+#' The "fars_read" function reads a file and save the data in a variable called "data".
+#'
 #'
 #' @param filename A single string with the name of the file.
 #' Only years 2013, 2014 and 2015 are available. Trying loading a different year will result in
